@@ -1,5 +1,8 @@
 # Welcome to Django Projects!
 
+![Home (4)](https://github.com/bicky007/Django-projects/assets/128511616/9c00cf36-4e7f-4c76-8c2f-513382198a24)
+
+
 Welcome to our Django Projects Repository! 🎉 This repository houses a collection of diverse Django projects, each demonstrating unique functionalities and showcasing the versatility of Django in web development. Whether you're a beginner looking to learn Django or an experienced developer seeking inspiration, you'll find something of interest here!
 
 ## Why Django?
