@@ -3,6 +3,7 @@
 
 ## Installation
 - Simply download using the url below
+- https://github.com/bicky007/Django-projects/tree/main/Login%20Authentication
 
 ## To migrate the database open terminal in project directory and type
 - python manage.py makemigrations
