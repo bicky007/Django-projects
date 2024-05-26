@@ -18,13 +18,6 @@ A simple To-Do list application built with Django, allowing users to create, upd
 - Django 3.x or higher
 - pip (Python package installer)
 
-### Clone the Repository
-
-```bash
-git clone https://github.com/bicky007/todo-django.git
-cd todo-django
-```
-
 ### Create and Activate Virtual Environment
 ```bash
 python -m venv venv
