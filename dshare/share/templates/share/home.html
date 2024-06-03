@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="dark">
+<head>
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black text-white font-sans">
+    <div class="min-h-screen flex items-center justify-center">
+        <div id="upload-section" class="hidden">
+            <form id="upload-form" method="post" enctype="multipart/form-data" action="/upload/">
+                {% csrf_token %}
+                <input type="file" name="file" class="mb-4 p-2 bg-white text-black">
+                <button type="submit" class="p-2 bg-white text-black">Upload File</button>
+            </form>
+            <button onclick="pasteText()" class="p-2 bg-white text-black">Paste Clipboard</button>
+        </div>
+    </div>
+    <script>
+        let keyword = '';
+        const specialKeywordUpload = 'bicky';
+        const specialKeywordDownload = 'baba';
+
+        document.addEventListener('keydown', function (e) {
+            keyword += e.key.toLowerCase();
+            if (keyword.includes(specialKeywordUpload)) {
+                document.getElementById('upload-section').classList.remove('hidden');
+                keyword = '';  // Reset keyword
+            }
+            if (keyword.includes(specialKeywordDownload)) {
+                window.location.href = '/download/';
+                keyword = '';  // Reset keyword
+            }
+        });
+
+        async function pasteText() {
+            const text = await navigator.clipboard.readText();
+            const formData = new FormData();
+            formData.append('text', text);
+            fetch('/upload/', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            }).then(response => response.json()).then(data => {
+                alert(data.status);
+            });
+        }
+
+        document.getElementById('upload-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch('/upload/', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            }).then(response => response.json()).then(data => {
+                alert(data.status);
+            });
+        });
+    </script>
+</body>
+</html>

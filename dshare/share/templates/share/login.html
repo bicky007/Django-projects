@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html class="dark">
+<head>
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black text-white font-sans">
+    <div class="min-h-screen flex items-center justify-center">
+        <form method="post">
+            {% csrf_token %}
+            <input id="password-input" type="password" name="password" placeholder="Enter password" class="mb-4 p-2 bg-white text-black">
+            <button type="submit" class="p-2 bg-white text-black">Login</button>
+        </form>
+    </div>
+    <script>
+        window.onload = function() {
+            document.getElementById('password-input').focus();
+        };
+    </script>
+</body>
+</html>
