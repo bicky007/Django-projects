@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Resume</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Create Your Resume</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ form.first_name.label }} {{ form.first_name }}
+                </div>
+                <div class="form-group col-md-6">
+                    {{ form.last_name.label }} {{ form.last_name }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ form.email.label }} {{ form.email }}
+                </div>
+                <div class="form-group col-md-6">
+                    {{ form.phone.label }} {{ form.phone }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form.address.label }} {{ form.address }}
+            </div>
+            <div class="form-group">
+                {{ form.linkedin.label }} {{ form.linkedin }}
+            </div>
+            <h3>Education</h3>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ form.school_name.label }} {{ form.school_name }}
+                </div>
+                <div class="form-group col-md-6">
+                    {{ form.degree.label }} {{ form.degree }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form.field_of_study.label }} {{ form.field_of_study }}
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ form.education_start_date.label }} {{ form.education_start_date }}
+                </div>
+                <div class="form-group col-md-6">
+                    {{ form.education_end_date.label }} {{ form.education_end_date }}
+                </div>
+            </div>
+            <h3>Experience</h3>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ form.job_title.label }} {{ form.job_title }}
+                </div>
+                <div class="form-group col-md-6">
+                    {{ form.company_name.label }} {{ form.company_name }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ form.job_start_date.label }} {{ form.job_start_date }}
+                </div>
+                <div class="form-group col-md-6">
+                    {{ form.job_end_date.label }} {{ form.job_end_date }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form.job_description.label }} {{ form.job_description }}
+            </div>
+            <h3>Certifications</h3>
+            <div class="form-group">
+                {{ form.certification_name.label }} {{ form.certification_name }}
+            </div>
+            <div class="form-group">
+                {{ form.certification_issuer.label }} {{ form.certification_issuer }}
+            </div>
+            <div class="form-group">
+                {{ form.certification_date.label }} {{ form.certification_date }}
+            </div>
+            <h3>Projects</h3>
+            <div class="form-group">
+                {{ form.project_title.label }} {{ form.project_title }}
+            </div>
+            <div class="form-group">
+                {{ form.project_description.label }} {{ form.project_description }}
+            </div>
+            <h3>Skills</h3>
+            <div class="form-group">
+                {{ form.skills.label }} {{ form.skills }}
+            </div>
+            <button type="submit" class="btn btn-primary">Save and View Resume</button>
+        </form>
+    </div>
+</body>
+</html>
